@@ -10,20 +10,20 @@ import androidx.navigation3.runtime.rememberSavedStateNavEntryDecorator
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.ui.NavDisplay
+import com.shevelev.jpcanilations.features.cardrotation.CardRotationScreen
 import com.shevelev.jpcanilations.features.glitch.GlitchButtonScreen
 import com.shevelev.jpcanilations.mainmenu.MainMenu
 import com.shevelev.jpcanilations.ui.navigation.Route
-import com.shevelev.jpcanilations.ui.navigation.Route.GlitchButton
-import com.shevelev.jpcanilations.ui.navigation.Route.MainMenu
 import com.shevelev.jpcanilations.ui.theme.JPCAnilationsTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContent {
             JPCAnilationsTheme {
-                val backStack = remember { mutableStateListOf<Route>(MainMenu) }
+                val backStack = remember { mutableStateListOf<Route>(Route.MainMenu) }
 
                 NavDisplay(
                     entryDecorators = listOf(
@@ -34,14 +34,18 @@ class MainActivity : ComponentActivity() {
                     onBack = { backStack.removeLastOrNull() },
                     entryProvider = { key ->
                         when (key) {
-                            is MainMenu -> NavEntry(key) {
+                            is Route.MainMenu -> NavEntry(key) {
                                 MainMenu(
                                     backstack = backStack,
                                 )
                             }
 
-                            is GlitchButton -> NavEntry(key) {
+                            is Route.GlitchButton -> NavEntry(key) {
                                 GlitchButtonScreen()
+                            }
+
+                            is Route.CardRotation -> NavEntry(key) {
+                                CardRotationScreen()
                             }
                         }
                     }

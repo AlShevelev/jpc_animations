@@ -1,6 +1,7 @@
 package com.shevelev.jpcanilations.mainmenu
 
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -19,20 +20,34 @@ fun MainMenu(
 ) {
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Surface(modifier = Modifier.fillMaxSize()) {
-            Box(
+            Column(
                 modifier = modifier
                     .padding(innerPadding)
                     .fillMaxSize()
             ) {
-                Button(
-                    onClick = {
-                        backstack.add(Route.GlitchButton)
-                    },
-                    modifier = Modifier.align(Alignment.Center)
-                ) {
-                    Text("Glitch Button")
-                }
+                MenuButton(
+                    text = "Glitch Button",
+                    onClick = { backstack.add(Route.GlitchButton) }
+                )
+                MenuButton(
+                    text = "CardRotation",
+                    onClick = { backstack.add(Route.CardRotation) }
+                )
             }
         }
+    }
+}
+
+@Composable
+private fun ColumnScope.MenuButton(
+    text: String,
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit,
+) {
+    Button(
+        onClick = onClick,
+        modifier = modifier.align(Alignment.CenterHorizontally)
+    ) {
+        Text(text)
     }
 }

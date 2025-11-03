@@ -4,4 +4,6 @@ sealed interface Route {
     data object MainMenu: Route
 
     data object GlitchButton: Route
+
+    data object CardRotation: Route
 }
