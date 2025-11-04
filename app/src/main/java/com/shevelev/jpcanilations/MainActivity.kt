@@ -11,6 +11,7 @@ import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDe
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.ui.NavDisplay
 import com.shevelev.jpcanilations.features.cardrotation.CardRotationScreen
+import com.shevelev.jpcanilations.features.draggingcard.DraggingCardScreen
 import com.shevelev.jpcanilations.features.glitch.GlitchButtonScreen
 import com.shevelev.jpcanilations.mainmenu.MainMenu
 import com.shevelev.jpcanilations.ui.navigation.Route
@@ -46,6 +47,10 @@ class MainActivity : ComponentActivity() {
 
                             is Route.CardRotation -> NavEntry(key) {
                                 CardRotationScreen()
+                            }
+
+                            is Route.DraggingCard -> NavEntry(key) {
+                                DraggingCardScreen()
                             }
                         }
                     }

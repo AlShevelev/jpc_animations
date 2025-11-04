@@ -6,4 +6,6 @@ sealed interface Route {
     data object GlitchButton: Route
 
     data object CardRotation: Route
+
+    data object DraggingCard: Route
 }

@@ -10,7 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun CardRotationScreen(
+internal fun CardRotationScreen(
     modifier: Modifier = Modifier,
 ) {
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->

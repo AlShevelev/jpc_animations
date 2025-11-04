@@ -31,7 +31,7 @@ import kotlin.random.Random
  * Based on this article
  */
 @Composable
-fun GlitchButton(
+internal fun GlitchButton(
     modifier: Modifier = Modifier,
 ) {
     var key by remember { mutableIntStateOf(0) }

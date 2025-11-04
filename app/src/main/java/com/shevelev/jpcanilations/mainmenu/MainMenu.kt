@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import com.shevelev.jpcanilations.ui.navigation.Route
 
 @Composable
-fun MainMenu(
+internal fun MainMenu(
     modifier: Modifier = Modifier,
     backstack: MutableList<Route>,
 ) {
@@ -30,8 +30,12 @@ fun MainMenu(
                     onClick = { backstack.add(Route.GlitchButton) }
                 )
                 MenuButton(
-                    text = "CardRotation",
+                    text = "Card's rotation",
                     onClick = { backstack.add(Route.CardRotation) }
+                )
+                MenuButton(
+                    text = "Dragging a card",
+                    onClick = { backstack.add(Route.DraggingCard) }
                 )
             }
         }

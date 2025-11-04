@@ -35,7 +35,7 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 
 @Composable
-fun Modifier.glitchEffect(
+internal fun Modifier.glitchEffect(
     key: Any? = null,
     glitchColors: List<Color> = listOf(Green500),
     slices: Int = 20,
@@ -100,7 +100,7 @@ fun Modifier.glitchEffect(
 }
 
 @Composable
-fun Modifier.rings(
+internal fun Modifier.rings(
     ringColor: Color = Red500,
     ringCount: Int = 6,
     ringSpace: Dp = 2.dp
