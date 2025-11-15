@@ -1,5 +1,6 @@
 package com.shevelev.jpcanilations.mainmenu
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.sp
 import com.shevelev.jpcanilations.ui.navigation.Route
 
 @Composable
@@ -21,6 +23,7 @@ internal fun MainMenu(
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Surface(modifier = Modifier.fillMaxSize()) {
             Column(
+                verticalArrangement = Arrangement.Center,
                 modifier = modifier
                     .padding(innerPadding)
                     .fillMaxSize()
@@ -56,6 +59,9 @@ private fun ColumnScope.MenuButton(
         onClick = onClick,
         modifier = modifier.align(Alignment.CenterHorizontally)
     ) {
-        Text(text)
+        Text(
+            text,
+            fontSize = 24.sp,
+        )
     }
 }

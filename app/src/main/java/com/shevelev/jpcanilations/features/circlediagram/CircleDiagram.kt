@@ -41,29 +41,17 @@ fun CircleDiagram(
                 val topLeft = Offset(size.width / 2 - radius, size.height / 2 - radius)
 
                 onDrawBehind {
-                    for (i in arcs.indices) {
-                        val arc = arcs[i]
-
-                        if (arc.from >= animateFloat.value) {
-                            continue
-                        }
-
-                        if (arc.to <= animateFloat.value) {
-                            drawArc(
-                                color = arc.color,
-                                startAngle = 360f*arc.from - 90,
-                                sweepAngle = 360f*(arc.to - arc.from),
-                                useCenter = false,
-                                topLeft = topLeft,
-                                size = size,
-                                style = style
-                            )
+                    for (arc in arcs) {
+                        val toValue = when {
+                            arc.from >= animateFloat.value -> continue
+                            arc.to <= animateFloat.value -> arc.to
+                            else -> animateFloat.value
                         }
 
                         drawArc(
                             color = arc.color,
                             startAngle = 360f*arc.from - 90,
-                            sweepAngle = 360f*(animateFloat.value - arc.from),
+                            sweepAngle = 360f*(toValue - arc.from),
                             useCenter = false,
                             topLeft = topLeft,
                             size = size,
