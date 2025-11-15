@@ -8,4 +8,6 @@ sealed interface Route {
     data object CardRotation: Route
 
     data object DraggingCard: Route
+
+    data object CircleDiagram: Route
 }

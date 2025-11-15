@@ -37,6 +37,10 @@ internal fun MainMenu(
                     text = "Dragging a card",
                     onClick = { backstack.add(Route.DraggingCard) }
                 )
+                MenuButton(
+                    text = "Circle diagram",
+                    onClick = { backstack.add(Route.CircleDiagram) }
+                )
             }
         }
     }
