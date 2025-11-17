@@ -13,6 +13,7 @@ import androidx.navigation3.ui.NavDisplay
 import com.shevelev.jpcanilations.features.cardrotation.CardRotationScreen
 import com.shevelev.jpcanilations.features.circlediagram.CircleDiagramScreen
 import com.shevelev.jpcanilations.features.draggingcard.DraggingCardScreen
+import com.shevelev.jpcanilations.features.fuzzylist.FuzzyListScreen
 import com.shevelev.jpcanilations.features.glitch.GlitchButtonScreen
 import com.shevelev.jpcanilations.mainmenu.MainMenu
 import com.shevelev.jpcanilations.ui.navigation.Route
@@ -52,6 +53,9 @@ class MainActivity : ComponentActivity() {
                             }
                             is Route.CircleDiagram -> NavEntry(key) {
                                 CircleDiagramScreen()
+                            }
+                            is Route.FuzzyList -> NavEntry(key) {
+                                FuzzyListScreen()
                             }
                         }
                     }

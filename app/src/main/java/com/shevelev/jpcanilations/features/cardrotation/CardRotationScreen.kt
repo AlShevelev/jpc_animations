@@ -24,7 +24,9 @@ internal fun CardRotationScreen(
             ) {
                 CardFull(
                     isRussianSideDefault = false,
-                    modifier = Modifier.align(Alignment.Center)
+                    modifier = Modifier.align(Alignment.Center),
+                    rusText = "Огонь бушевал в разделенном на две части городе Анк-Морпорке.",
+                    engText = "Fire roared through the bifurcated city of Ankh-Morpork.",
                 )
             }
         }

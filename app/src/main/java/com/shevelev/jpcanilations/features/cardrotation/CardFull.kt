@@ -19,12 +19,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
 internal fun CardFull(
     modifier: Modifier = Modifier,
     isRussianSideDefault: Boolean,
+    rusText: String,
+    engText: String,
+    height: Dp = 250.dp,
 ) {
     val startLanguage = if (isRussianSideDefault) Language.RUSSIAN else Language.ENGLISH
     var language by remember { mutableStateOf(startLanguage) }
@@ -58,7 +62,7 @@ internal fun CardFull(
 
     Card(
         modifier = modifier
-            .height(250.dp)
+            .height(height)
             .padding(horizontal = 32.dp)
             .graphicsLayer {
                 rotationY = rotation
@@ -70,11 +74,7 @@ internal fun CardFull(
         },
     ) {
         CardSide(
-            text = if (language == Language.RUSSIAN) {
-                "Fire roared through the bifurcated city of Ankh-Morpork."
-            } else {
-                "Огонь бушевал в разделенным на две части городе Анк-Морпорке."
-            },
+            text = if (language == Language.RUSSIAN) rusText else engText,
             modifier = Modifier
                 .fillMaxSize()
                 .graphicsLayer {

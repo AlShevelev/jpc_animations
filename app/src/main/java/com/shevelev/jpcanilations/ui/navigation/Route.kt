@@ -10,4 +10,6 @@ sealed interface Route {
     data object DraggingCard: Route
 
     data object CircleDiagram: Route
+
+    data object FuzzyList: Route
 }

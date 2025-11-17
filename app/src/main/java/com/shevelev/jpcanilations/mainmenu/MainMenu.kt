@@ -44,6 +44,10 @@ internal fun MainMenu(
                     text = "Circle diagram",
                     onClick = { backstack.add(Route.CircleDiagram) }
                 )
+                MenuButton(
+                    text = "Fuzzy list",
+                    onClick = { backstack.add(Route.FuzzyList) }
+                )
             }
         }
     }
